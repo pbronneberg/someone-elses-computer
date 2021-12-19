@@ -5,14 +5,13 @@
 replicaCount: 1
 
 image:
-  repository: pbronneberg/dotnet-minimal-api-example
-  pullPolicy: Always
+  repository: pbronneberg/landing-page
+  pullPolicy: IfNotPresent
   tag: "latest"
 
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
-basePath: "/api"
 
 serviceAccount:
   # Specifies whether a service account should be created
@@ -53,7 +52,7 @@ ingress:
   hosts:
     - host: someone-elses-computer.com
       paths:
-        - path: /api
+        - path: /
           pathType: ImplementationSpecific
   tls: 
     - secretName: landing-page-tls
@@ -62,7 +61,7 @@ ingress:
 
 autoscaling:
   enabled: false
-  minReplicas: 2
-  maxReplicas: 4
+  minReplicas: 1
+  maxReplicas: 3
   targetCPUUtilizationPercentage: 80
   # targetMemoryUtilizationPercentage: 80

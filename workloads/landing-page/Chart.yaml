@@ -1,6 +1,6 @@
 apiVersion: v2
-name: weather
-description: simple .Net 6 API
+name: landing-page
+description: simplest possible landing page
 
 # A chart can be either an 'application' or a 'library' chart.
 #
